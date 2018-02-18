@@ -1,0 +1,13 @@
+name: rwh_myfirstshinyapp
+title: RWH_myfirstShinyApp
+username:
+account: bkrishna2006
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 283624
+bundleId: 1227631
+url: https://bkrishna2006.shinyapps.io/rwh_myfirstshinyapp/
+when: 1518883861.31584
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: ServerDOTRbackup|uiDOTRbackup

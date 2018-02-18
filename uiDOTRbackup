@@ -1,0 +1,47 @@
+
+# This is the user-interface definition of a Shiny web application.
+# You can find out more about building applications with Shiny here:
+#
+# http://shiny.rstudio.com
+#
+
+library(shiny)
+shinyUI(fluidPage(
+
+  # Application title
+  titlePanel(h5("Potential for Rain Water Harvesting")),
+
+  # Sidebar with a slider input for area, number of family members and district
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("members","Nbr of family members:", min = 1, max = 10, value = 4),
+      sliderInput("area", "Floor Area in sq.ft:", min = 500, max = 5000, value = 2000),
+      selectInput(inputId = "district",
+                  label = "District",
+             #     choices = rainfall$DISTRICT,
+                  choices = c("THIRUVANANTHA", "PALAKKAD","CANNUR"),
+                  selected = "THIRUVANANTHA", 
+                  multiple = FALSE,
+                  width = '100%')
+    ),
+  mainPanel(
+      # plotOutput("distPlot")
+        h3("Rain water harvesting Capacity Calulator"),
+        h4("Your family's daily water consumption (in litres) is: "), textOutput("daily_cons"),
+      # h4("Your family's Annual water consumption in litres is "), textOutput("yearly_cons_litres"),
+        h4("Your family's Annual water consumption (in gallons) is: "), textOutput("yearly_cons_gal"),
+      
+        h4("You have selected your district as: "), textOutput("selected_district"), 
+      
+       # h4("Annual rainfall in your district is: "), textOutput("distr_annrf_gal"),
+        h4("Annual rainfall (in inches) in your district is: "), textOutput("distr_annrf_gal"),
+        h4("Effective area (in sq.ft) you have for RW harvesting: "), textOutput("rwh_area"), 
+      
+        h4("Rain water you can harvest (in gallons) annually is: "), textOutput("yearly_harv_gal"),
+        h4("If you decide to harvest RW, your proportionate savings is: "), textOutput("prop_savings"),
+        h4("times")
+    )
+  )
+))
+
+
